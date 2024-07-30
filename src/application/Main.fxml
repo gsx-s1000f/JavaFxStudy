@@ -10,7 +10,7 @@
   <panes>
     <TitledPane animated="false" text="日付フォーマット">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="231.0" prefWidth="598.0">
                <children>
                   <Button fx:id="aButton1" layoutX="299.0" layoutY="100.0" mnemonicParsing="false" onAction="#onActionAButton1" text="Button" />
                   <TextField fx:id="aFormatField1" layoutX="90.0" layoutY="103.0" prefHeight="26.0" prefWidth="200.0" />
