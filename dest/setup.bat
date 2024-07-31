@@ -19,4 +19,4 @@ rem .\jre-min\bin\java -jar .\dest\lessonstudy.jar
 
 
 rem jpackage --win-console --type msi --win-menu --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name LessonStudy --main-class application.Main --main-jar lessonstudy.jar
-jpackage --type msi --win-menu --win-menu-group LessonStudy --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name LessonStudy --main-class application.Main --main-jar lessonstudy.jar
+jpackage --win-per-user-install --type msi --win-menu --win-menu-group LessonStudy --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name LessonStudy --main-class application.Main --main-jar lessonstudy.jar
