@@ -1,5 +1,12 @@
 package application;
 	
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Iterator;
+import java.util.Map;
+
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
@@ -8,8 +15,11 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
 import javafx.fxml.FXMLLoader;
 
-
 public class Main extends Application {
+	/**
+	 * JavaFXスタート
+	 * @param	primaryStage	ステージ
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {

@@ -27,7 +27,7 @@ import javafx.scene.input.DataFormat;
 
 public class MainController implements Initializable {
 	
-	final String PROP_PATH = "prop.xml";
+	final String PROP_PATH = ".\\app\\prop.xml";
 	
 	final Properties prop = new Properties();
 
