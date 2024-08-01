@@ -37,19 +37,31 @@ public class MainController implements Initializable {
     @FXML
     private TextField aFormatField1;
 
+    /**
+     * パネルA：日付フォーマット
+     * ボタン1クリック
+     * @param	event	イベント
+     */
     @FXML
-    void onActionAButton1(ActionEvent event) {
-    	String text = this.aFormatField1.getText();
-    	SimpleDateFormat formatter = new SimpleDateFormat(text);
-    	String formttedString = formatter.format(new Date());
-    	System.out.println(formttedString);
-    	
-    	Clipboard cb = Clipboard.getSystemClipboard();
-    	final Map<DataFormat, Object> content = new HashMap<>();
-    	content.put(DataFormat.PLAIN_TEXT, formttedString);
-    	cb.setContent(content);
+    void onActionAButton(ActionEvent event) {
+    	// TODO 動的にします。
+    	Button o = (Button)event.getSource();
+    	String id = o.getId();
+    	if(id == null) {
+    		return;
+    	} else if(id.equals("aButton1")) {
+        	String text = this.aFormatField1.getText();
+        	SimpleDateFormat formatter = new SimpleDateFormat(text);
+        	String formttedString = formatter.format(new Date());
+        	System.out.println(formttedString);
+        	
+        	Clipboard cb = Clipboard.getSystemClipboard();
+        	final Map<DataFormat, Object> content = new HashMap<>();
+        	content.put(DataFormat.PLAIN_TEXT, formttedString);
+        	cb.setContent(content);
+    	}
+	
     }
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.readProp();
