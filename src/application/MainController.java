@@ -46,7 +46,7 @@ public class MainController implements Initializable {
 
     /**
      * パネルA：日付フォーマット
-     * ボタン1クリック
+     * ボタンクリック
      * @param	event	イベント
      */
     @FXML
@@ -92,10 +92,7 @@ public class MainController implements Initializable {
 				if (field.getType().equals(TextField.class)) {
 					try {
 						((TextField)field.get(this)).setText(value);
-					} catch (IllegalArgumentException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IllegalAccessException e) {
+					} catch (IllegalArgumentException | IllegalAccessException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
