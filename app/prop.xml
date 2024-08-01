@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<comment>Wed Jul 31 20:11:19 JST 2024</comment>
-<entry key="aFormatField1">yyyy-MM-dd HH:mm:ss.SSS</entry>
+<comment>Thu Aug 01 23:07:15 JST 2024</comment>
+<entry key="aFormatField1">yyyyMMdd</entry>
+<entry key="aFormatField3">yyyyMMddHHmmssSSS</entry>
+<entry key="aFormatField2">yyyyMMddHHmmss</entry>
+<entry key="aFormatField5">yyyy-MM-dd HH:mm:ss.SSS</entry>
+<entry key="aFormatField4">yyyy-MM-dd</entry>
 </properties>

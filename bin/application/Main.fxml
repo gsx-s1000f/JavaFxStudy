@@ -12,8 +12,16 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="231.0" prefWidth="598.0">
                <children>
-                  <Button fx:id="aButton1" layoutX="299.0" layoutY="100.0" mnemonicParsing="false" onAction="#onActionAButton" text="Button" />
-                  <TextField fx:id="aFormatField1" layoutX="90.0" layoutY="103.0" prefHeight="26.0" prefWidth="200.0" />
+                  <Button fx:id="aButton1" layoutX="344.0" layoutY="36.0" mnemonicParsing="false" onAction="#onActionAButton" text="Button" />
+                  <TextField fx:id="aFormatField1" layoutX="135.0" layoutY="38.0" prefHeight="26.0" prefWidth="200.0" />
+                  <Button fx:id="aButton2" layoutX="344.0" layoutY="88.0" mnemonicParsing="false" onAction="#onActionAButton" text="Button" />
+                  <TextField fx:id="aFormatField2" layoutX="135.0" layoutY="90.0" prefHeight="26.0" prefWidth="200.0" />
+                  <Button fx:id="aButton3" layoutX="344.0" layoutY="140.0" mnemonicParsing="false" onAction="#onActionAButton" text="Button" />
+                  <TextField fx:id="aFormatField3" layoutX="135.0" layoutY="142.0" prefHeight="26.0" prefWidth="200.0" />
+                  <Button fx:id="aButton4" layoutX="344.0" layoutY="192.0" mnemonicParsing="false" onAction="#onActionAButton" text="Button" />
+                  <TextField fx:id="aFormatField4" layoutX="135.0" layoutY="194.0" prefHeight="26.0" prefWidth="200.0" />
+                  <Button fx:id="aButton5" layoutX="344.0" layoutY="244.0" mnemonicParsing="false" onAction="#onActionAButton" text="Button" />
+                  <TextField fx:id="aFormatField5" layoutX="135.0" layoutY="247.0" prefHeight="26.0" prefWidth="200.0" />
                </children>
         </AnchorPane>
       </content>

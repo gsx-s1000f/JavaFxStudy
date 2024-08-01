@@ -1,12 +1,5 @@
 package application;
 	
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Iterator;
-import java.util.Map;
-
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.stage.Stage;
@@ -27,7 +20,7 @@ public class Main extends Application {
 			Accordion root = (Accordion)FXMLLoader.load(getClass().getResource("Main.fxml"));
 			ObservableList<TitledPane> titiles = root.getPanes();
 			root.setExpandedPane(titiles.get(0));
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
