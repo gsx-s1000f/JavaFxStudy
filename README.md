@@ -54,7 +54,7 @@
 	~LessonStudy> java --module-path %JAVA_FX_HOME%\lib --add-modules=javafx.controls,javafx.fxml,javafx.media,javafx.swing -jar .\dest\lessonstudy.jar
 	```
 1. jarファイルが使用するモジュールを確認する。
-	最後zipでまとめるにしろインストーラにするにしろ、ここが一番大事。
+	<br/>最後zipでまとめるにしろインストーラにするにしろ、ここが一番大事。
 	```console
 	~LessonStudy> java --module-path %JAVA_FX_HOME%\lib --add-modules=javafx.controls,javafx.fxml,javafx.media,javafx.swing -jar .\dest\lessonstudy.jar
 	LessonStudy -> java.base
@@ -64,18 +64,18 @@
 	LessonStudy -> javafx.graphics
 	```
 1. 最小単位のjreを作成する。
-	最小単位のjreとはいうが、JavaFXのライブラリも内包してくれるので非常に重要。
+	<br/>最小単位のjreとはいうが、JavaFXのライブラリも内包してくれるので非常に重要。
 	```console
 	~LessonStudy> jlink --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --output .\jre-min
 	```
 1. 最小単位のjreで動かせるか確認する。
-	```
+	```console
 	.\jre-min\bin\java -jar .\dest\lessonstudy.jar
 	```
 1. インストーラを作成する。
-	モジュールまわりは最小単位のjreを作る時と同じオプションを使用するのが大事。
-	Program Filesにインストールすると、アプリケーションフォルダ内のプロパティファイルが更新できないので、ユーザー単位のインストールを設定しています。
-	```
+	<br/>モジュールまわりは最小単位のjreを作る時と同じオプションを使用するのが大事。
+	<br/>Program Filesにインストールすると、アプリケーションフォルダ内のプロパティファイルが更新できないので、ユーザー単位のインストールを設定しています。
+	```console
 	jpackage --win-per-user-install --type msi --win-menu --win-menu-group LessonStudy --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name LessonStudy --main-class application.Main --main-jar lessonstudy.jar
 	```
 
