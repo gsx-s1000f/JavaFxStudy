@@ -10,6 +10,9 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.lang.reflect.Field;
 
@@ -111,6 +114,10 @@ public class MainController implements Initializable {
     		bTextArea2.setText(Native2Ascii.toAscii(bTextArea1.getText()));
     	}else if(id.equals("bButton2")) {
     		bTextArea2.setText(Native2Ascii.toNative(bTextArea1.getText()));
+    	}else if (id.equals("bButton3")) {
+    		bTextArea2.setText(URLEncoder.encode(bTextArea1.getText(),Charset.defaultCharset()));
+    	}else if(id.equals("bButton4")) {
+    		bTextArea2.setText(URLDecoder.decode(bTextArea1.getText(),Charset.defaultCharset()));
     	}
     }
     /**

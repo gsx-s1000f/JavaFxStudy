@@ -1,7 +1,7 @@
-set JAVA_HOME=D:\Atelier\Java\openjdk-22.0.2
-set JAVA_FX_HOME=D:\Atelier\JavaFX\javafx-sdk-22.0.2
-set JAVA_FX_MODS=D:\Atelier\JavaFX\javafx-jmods-22.0.2
-set WIX_HOME=D:\Atelier\WixToolSet\wix314-binaries
+set JAVA_HOME=..\..\..\Java\openjdk-22.0.2
+set JAVA_FX_HOME=..\..\..\JavaFX\javafx-sdk-22.0.2
+set JAVA_FX_MODS=..\..\..\JavaFX\javafx-jmods-22.0.2
+set WIX_HOME=..\..\..\WixToolSet\wix314-binaries
 
 set Path=%Path%;%WIX_HOME%;%JAVA_HOME%\bin;%JAVA_FX_HOME%\lib
 
