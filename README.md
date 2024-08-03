@@ -43,10 +43,10 @@
 コマンドプロンプトでの作業
 1. 環境変数を設定する。
 	```console
-	~LessonStudy> set JAVA_HOME=作業フォルダ\Java\openjdk-22.0.2
-	~LessonStudy> set JAVA_FX_HOME=作業フォルダ\JavaFX\javafx-sdk-22.0.2
-	~LessonStudy> set JAVA_FX_MODSE=作業フォルダ\JavaFX\javafx-jmods-22.0.2
-	~LessonStudy> set WIX_HOME=作業フォルダ\WixToolSet\wix314-binaries
+	~LessonStudy> set JAVA_HOME=..\..\..\Java\openjdk-22.0.2
+	~LessonStudy> set JAVA_FX_HOME=..\..\..\JavaFX\javafx-sdk-22.0.2
+	~LessonStudy> set JAVA_FX_MODS=..\..\..\JavaFX\javafx-jmods-22.0.2
+	~LessonStudy> set WIX_HOME=..\..\..\WixToolSet\wix314-binaries
 	~LessonStudy> set Path=%Path%;%WIX_HOME%;%JAVA_HOME%\bin;%JAVA_FX_HOME%\lib
 	```
 1. 作成したjarファイルが動くか確認する。
@@ -56,7 +56,7 @@
 1. jarファイルが使用するモジュールを確認する。
 	<br/>最後zipでまとめるにしろインストーラにするにしろ、ここが一番大事。
 	```console
-	~LessonStudy> java --module-path %JAVA_FX_HOME%\lib --add-modules=javafx.controls,javafx.fxml,javafx.media,javafx.swing -jar .\dest\lessonstudy.jar
+	~LessonStudy> jdeps --module-path %JAVA_FX_HOME%\lib -s .\dest\lessonstudy.jar
 	LessonStudy -> java.base
 	LessonStudy -> javafx.base
 	LessonStudy -> javafx.controls
