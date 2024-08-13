@@ -2,6 +2,8 @@
 
 ## はじめに
 
+JavaFXとjpackageでWindowsアプリケーションを作ってみました。
+
 はじめはJava17でやろうとがんばっていましたが、[これ](https://github.com/oracle/graal/issues/4790)を見て諦めてJava22に乗り換えました。
 私同様、はじめてJavaFX+jpackageでアプリを作ろうとするのであれば、Java17はやめておいた方がいいんじゃないかなあ…。
 あと、All-in-One の Eclipse は、JavaFXのプラグインが動かなかったので、ピュアEclipse使うのがいいと思います。JavaFXが使えるのを確認してから、他のプラグインを考えるのがよいかと思います。
@@ -13,9 +15,14 @@
 	- [OpenJDK](https://openjdk.org)
 		- JDK 22.0.2 の Win 64 zipをダウンロードする。
 	- [OpenJFX](https://openjfx.io)
-		- JavaFX 22.0.2 のSDK、jmods をダウンロードする。まじめにやるなら javadocもダウンロードすべき。
+		- JavaFX
+			22.0.2、Windows、x64の、SDK、jmodsをダウンロードする。javadocもダウンロードしておく。
+			- openjfx-22.0.2_windows-x64_bin-sdk.zip
+			- openjfx-22.0.2_windows-x64_bin-jmods.zip
+			- openjfx-22.0.2-javadoc.zip
 		- Scene Builder をダウンロードする。
 			- DonloadページからトップメニューのProductsで選べる。バージョンが選べないので、ここで選んだバージョンにあわせてJavaFXの方もダウンロードするのがよいと思います。
+			- SceneBuilder-22.0.0.msi
 	- [ECLIPSE](https://www.eclipse.org/downloads/)
 		- Download Packages から、`Eclipse IDE for Java Developers`をダウンロードする。バージョンは`2024‑06 R`。
 	- [WiX Toolset](https://github.com/wixtoolset/wix3/releases)
@@ -33,11 +40,30 @@
 			- javafx-sdk-22.0.2
 		- WixToolSet
 			- wix314-binaries
-1. 作業中
-
+1. SceneBuilderをインストールしておく。
+	- `SceneBuilder-22.0.0.msi` をダブルクリックするだけ。
+1. Eclipseセッティング
+	1. 起動する。初回起動時に、上記のワークスペースを作成する。
+	1. Javaの設定
+		1. Window > Preferences を選択する。
+		1. Java > Installed JREs から、openjdk-22.0.2を登録し、default に設定する。
+	1. JavaFXの準備
+		1. help > Eclipse Marketplace... を選択する。
+		1. `Eclipse Market`ダイアログから Find に `fx` と入力して `Go` ボタンを押下する。
+		1. `e(fx)clipse 3.8.0` が表示される(はず)なので `installeo` ボタンを押下する。
+		1. インストールには結構時間がかかる。終わった様に見えても下の方にインストール中の表示がある。終わると再起動をうながされるので再起動する。
+		1. Window > Preferences を選択する。
+		1. JavaFX を選択する。
+		1. `SceneBuilder executable` にインストールしたexeを設定する。
+		1. `JavaFX 11+ SDK` に上に解凍した javafx-sdk-22.0.2 を設定する。
+	1. JavaFXプロジェクトを作成する。
+		1. File > New > Other... から、JavaFX > JavaFX Project を選べるようになっているので、ここから新規JavaFXプロジェクトを作成する。
 ## ビルド手順
 
-なんやかんやで実行可能jarを作成する。
+### jarを作成する。
+
+今回は、`Runnable JAR file` で、 `Copy required libraries into sub-folder next to generated JAR` を選択する。
+出力場所は、`LessonStudy\dest\lessonstudy.jar`
 
 ### インストーラを作成する。
 コマンドプロンプトでの作業
