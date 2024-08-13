@@ -8,6 +8,9 @@ import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
 import javafx.fxml.FXMLLoader;
 
+/**
+ * メインクラス
+ */
 public class Main extends Application {
 	/**
 	 * JavaFXスタート
@@ -28,7 +31,10 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+	/**
+	 * メインメソッド
+	 * @param args	起動引数
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

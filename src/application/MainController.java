@@ -28,6 +28,7 @@ import javafx.scene.input.DataFormat;
 
 public class MainController implements Initializable {
 
+	/** プロパティファイル */
 	final MyProperties prop = new MyProperties();
 	
     @FXML
@@ -81,10 +82,12 @@ public class MainController implements Initializable {
     	Button o = (Button)event.getSource();
     	String id = o.getId();
 
+    	// ボタン名からフィールドを特定する。
     	Matcher matcher = Pattern.compile("aButton(\\d)").matcher(id);
     	if(matcher.matches()) {
     		System.out.println("aFormatField" + matcher.group(1));
     		try {
+    			// ボタンにあわせたテキストフィールドを読み込む。
     			Field field = this.getClass().getDeclaredField("aFormatField" + matcher.group(1));
     			TextField textField = (TextField)field.get(this);
     			
@@ -93,6 +96,7 @@ public class MainController implements Initializable {
             	String formttedString = formatter.format(new Date());
             	System.out.println(formttedString);
             	
+            	// テキストフィールドの日付フォーマットでクリップボードに日時をコピーする。
             	Clipboard cb = Clipboard.getSystemClipboard();
             	final Map<DataFormat, Object> content = new HashMap<>();
             	content.put(DataFormat.PLAIN_TEXT, formttedString);
@@ -105,17 +109,25 @@ public class MainController implements Initializable {
     	}
 	
     }
+    /**
+     * パネルB：ボタンアクション
+     * @param event	イベント
+     */
     @FXML
     void onActionBButton(ActionEvent event) {
     	Button o = (Button)event.getSource();
     	String id = o.getId();
     	System.out.println(id);
+    	// native2ascii
     	if(id.equals("bButton1")) {
     		bTextArea2.setText(Native2Ascii.toAscii(bTextArea1.getText()));
+    	// ascii2native
     	}else if(id.equals("bButton2")) {
     		bTextArea2.setText(Native2Ascii.toNative(bTextArea1.getText()));
+    	// URLEncode
     	}else if (id.equals("bButton3")) {
     		bTextArea2.setText(URLEncoder.encode(bTextArea1.getText(),Charset.defaultCharset()));
+    	// URLDecode
     	}else if(id.equals("bButton4")) {
     		bTextArea2.setText(URLDecoder.decode(bTextArea1.getText(),Charset.defaultCharset()));
     	}
