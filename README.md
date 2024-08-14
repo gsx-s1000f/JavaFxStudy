@@ -55,9 +55,43 @@ JavaFXとjpackageでWindowsアプリケーションを作ってみました。
 		1. Window > Preferences を選択する。
 		1. JavaFX を選択する。
 		1. `SceneBuilder executable` にインストールしたexeを設定する。
-		1. `JavaFX 11+ SDK` に上に解凍した javafx-sdk-22.0.2 を設定する。
+		1. `JavaFX 11+ SDK` に上に解凍した `javafx-sdk-22.0.2\lib` を設定する。
+	1. JavaFXライブラリをユーザライブラリに登録する。
+		1. Window > Preferences を選択する。
+		1. Java > Build Path > User Libraries を選択する。
+		1. `New`ボタンから `javafx-sdk-22.0.2`を作成する。
+		1. `javafx-sdk-22.0.2`を選択した状態で`Add External JARs...`ボタンを押下し、上に解凍した `javafx-sdk-22.0.2\lib`のjarファイルをすべて登録する。
 	1. JavaFXプロジェクトを作成する。
 		1. File > New > Other... から、JavaFX > JavaFX Project を選べるようになっているので、ここから新規JavaFXプロジェクトを作成する。
+			- JRE
+				- Use a project specific JRE:openjdk-22.0.2
+			- Project layout
+				- Create separate folders for source and class files
+			- Working sets
+				- なし
+			- Module
+				- Create module-info.java file
+				- Generate comments
+			- Application type : Desktop
+			- Declarative UI
+				- Langage : FXML
+			- その他はアプリケーションにあわせて。
+		1. ビルドパスにJavaFXライブラリを追加する。
+			1. 作成したプロジェクトを選択して右クリックし、`Properties`を選択する。
+			1. `Java Build Path`を選択し、`Libraries`タブを選択する。
+			1. `Modulepath`を選択し、`Add Library...`ボタンを押下する。
+			1. `User Library`を選択し、`javafx-sdk-22.0.2`にチェックを入れて `Finish`を押下する。
+	1. `module-info.java`
+		```java
+		module JavaFxStudy {
+			requires javafx.controls;
+			requires javafx.fxml;
+			requires javafx.base;
+			requires javafx.graphics;
+		
+			opens application to javafx.graphics, javafx.fxml;
+		}
+		```
 ## ビルド手順
 
 ### jarを作成する。
