@@ -8,7 +8,7 @@ public class Native2Ascii {
 	final static String CR = "\\r"; 
 	final static String LF = "\\n"; 
 	
-	/** 改行にマッチするascii正規表現パターン */
+	/** 改行にマッチする正規表現パターン */
 	final static String RG_RETURN = "\\\\ua";
 	/** UTF8文字コードプレフィクスの正規表現パターン */
 	final static String RG_PREFIX = "\\\\u"; 
@@ -16,7 +16,7 @@ public class Native2Ascii {
 	/**
 	 * Native2Ascii
 	 * @param value	変換対象文字列
-	 * @return	Asciiに置き換えた文字列（ただし改行コードは`\ua`に変換しない。
+	 * @return	置き換えた文字列（ただし改行コードは変換しない。
 	 */
 	public static String toAscii(String value) {
 		if (value == null || value.length() < 1) {
@@ -37,19 +37,19 @@ public class Native2Ascii {
 	/**
 	 * Ascii2Native
 	 * @param value	変換対象文字列
-	 * @return	Nativeに変換した文字列（`\ua`は改行コードに戻る）
+	 * @return	Nativeに変換した文字列（`a`は改行コードに戻る）
 	 */
 	public static String toNative(String value) {
 		if (value == null || value.length() < 1) {
 			return value;
 		}
-		// 改行コードも含めてすべてasciiにしてから分解する。
+		// 改行コードも含めてすべて変換してから分解する。
 		String tmp = value.replaceAll(CRLF, RG_RETURN).replaceAll(CR, RG_RETURN).replaceAll(LF, RG_RETURN);
 		System.out.println(tmp);
 		StringBuilder sb = new StringBuilder();
 		for (String code : tmp.split(RG_PREFIX)) {
 			if(code.length() < 1) {
-				continue;	// 空文字は飛ばす（`\u\u`など）
+				continue;	// 空文字は飛ばす
 			}
 			sb.append((char)Integer.parseInt(code, 16));
 		}
