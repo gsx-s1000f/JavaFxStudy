@@ -1,4 +1,4 @@
-# LessonStudy
+# JavaFxStudy
 
 ## はじめに
 
@@ -63,46 +63,46 @@ JavaFXとjpackageでWindowsアプリケーションを作ってみました。
 ### jarを作成する。
 
 今回は、`Runnable JAR file` で、 `Copy required libraries into sub-folder next to generated JAR` を選択する。
-出力場所は、`LessonStudy\dest\lessonstudy.jar`
+出力場所は、`JavaFxStudy\dest\javafxstudy.jar`
 
 ### インストーラを作成する。
 コマンドプロンプトでの作業
 1. 環境変数を設定する。
 	```console
-	~LessonStudy> set JAVA_HOME=..\..\..\Java\openjdk-22.0.2
-	~LessonStudy> set JAVA_FX_HOME=..\..\..\JavaFX\javafx-sdk-22.0.2
-	~LessonStudy> set JAVA_FX_MODS=..\..\..\JavaFX\javafx-jmods-22.0.2
-	~LessonStudy> set WIX_HOME=..\..\..\WixToolSet\wix314-binaries
-	~LessonStudy> set Path=%Path%;%WIX_HOME%;%JAVA_HOME%\bin;%JAVA_FX_HOME%\lib
+	~JavaFxStudy> set JAVA_HOME=..\..\..\Java\openjdk-22.0.2
+	~JavaFxStudy> set JAVA_FX_HOME=..\..\..\JavaFX\javafx-sdk-22.0.2
+	~JavaFxStudy> set JAVA_FX_MODS=..\..\..\JavaFX\javafx-jmods-22.0.2
+	~JavaFxStudy> set WIX_HOME=..\..\..\WixToolSet\wix314-binaries
+	~JavaFxStudy> set Path=%Path%;%WIX_HOME%;%JAVA_HOME%\bin;%JAVA_FX_HOME%\lib
 	```
 1. 作成したjarファイルが動くか確認する。
 	```console
-	~LessonStudy> java --module-path %JAVA_FX_HOME%\lib --add-modules=javafx.controls,javafx.fxml,javafx.media,javafx.swing -jar .\dest\lessonstudy.jar
+	~JavaFxStudy> java --module-path %JAVA_FX_HOME%\lib --add-modules=javafx.controls,javafx.fxml,javafx.media,javafx.swing -jar .\dest\javafxstudy.jar
 	```
 1. jarファイルが使用するモジュールを確認する。
 	<br/>最後zipでまとめるにしろインストーラにするにしろ、ここが一番大事。
 	```console
-	~LessonStudy> jdeps --module-path %JAVA_FX_HOME%\lib -s .\dest\lessonstudy.jar
-	LessonStudy -> java.base
-	LessonStudy -> javafx.base
-	LessonStudy -> javafx.controls
-	LessonStudy -> javafx.fxml
-	LessonStudy -> javafx.graphics
+	~JavaFxStudy> jdeps --module-path %JAVA_FX_HOME%\lib -s .\dest\javafxstudy.jar
+	~JavaFxStudy -> java.base
+	~JavaFxStudy -> javafx.base
+	~JavaFxStudy -> javafx.controls
+	~JavaFxStudy -> javafx.fxml
+	~JavaFxStudy -> javafx.graphics
 	```
 1. 最小単位のjreを作成する。
 	<br/>最小単位のjreとはいうが、JavaFXのライブラリも内包してくれるので非常に重要。
 	```console
-	~LessonStudy> jlink --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --output .\jre-min
+	~JavaFxStudy> jlink --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --output .\jre-min
 	```
 1. 最小単位のjreで動かせるか確認する。
 	```console
-	.\jre-min\bin\java -jar .\dest\lessonstudy.jar
+	.\jre-min\bin\java -jar .\dest\javafxstudy.jar
 	```
 1. インストーラを作成する。
 	<br/>モジュールまわりは最小単位のjreを作る時と同じオプションを使用するのが大事。
 	<br/>Program Filesにインストールすると、アプリケーションフォルダ内のプロパティファイルが更新できないので、ユーザー単位のインストールを設定しています。
 	```console
-	jpackage --win-per-user-install --type msi --win-menu --win-menu-group LessonStudy --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name LessonStudy --main-class application.Main --main-jar lessonstudy.jar
+	jpackage --win-per-user-install --type msi --win-menu --win-menu-group JavaFxStudy --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name JavaFxStudy --main-class application.Main --main-jar javafxstudy.jar
 	```
 
 

@@ -1,4 +1,4 @@
-module LessonStudy {
+module JavaFxStudy {
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires javafx.base;
