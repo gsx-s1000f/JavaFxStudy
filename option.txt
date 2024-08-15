@@ -1,0 +1,14 @@
+--app-version 0.1
+--win-upgrade-uuid 07394ded-264e-4941-b3e2-55e858e7dd78
+--win-per-user-install
+--type msi
+--win-menu
+--win-menu-group gsx-s1000f
+--name JavaFxStudy
+--win-dir-chooser
+--win-shortcut
+--win-shortcut-prompt
+--add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics
+--input dest
+--main-class application.Main
+--main-jar javafxstudy.jar

@@ -139,4 +139,7 @@ JavaFXとjpackageでWindowsアプリケーションを作ってみました。
 	jpackage --win-per-user-install --type msi --win-menu --win-menu-group JavaFxStudy --win-dir-chooser --win-shortcut --win-shortcut-prompt --module-path %JAVA_FX_MODS% --add-modules java.base,javafx.base,javafx.controls,javafx.fxml,javafx.graphics --input dest --name JavaFxStudy --main-class application.Main --main-jar javafxstudy.jar
 	```
 
+# 参考文献
 
+- [jpackageを使ってJavaアプリケーションの配布用パッケージを作成する](https://rheb.hatenablog.com/entry/2023/10/25/110538)
+- [jpackageの踏み入った使い方](https://rheb.hatenablog.com/entry/2023/11/01/155002)

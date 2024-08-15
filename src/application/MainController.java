@@ -16,6 +16,7 @@ import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.lang.reflect.Field;
 
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -134,8 +135,8 @@ public class MainController implements Initializable {
     }
     /**
      * 初期処理
-     * @param	url
-     * @param	bundle
+     * @param	url	URL
+     * @param	bundle	ResourceBundle
      */
 	@Override
 	public void initialize(URL url, ResourceBundle bundle) {
