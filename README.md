@@ -36,6 +36,7 @@ JavaFXとjpackageでWindowsアプリケーションを作ってみました。
 		- Java
 			- openjdk-22.0.2
 		- JavaFX
+			- javafx-22.0.2-javadoc
 			- javafx-jmods-22.0.2
 			- javafx-sdk-22.0.2
 		- WixToolSet
