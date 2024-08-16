@@ -5,7 +5,7 @@
 JavaFXとjpackageでWindowsアプリケーションを作ってみました。
 
 はじめはJava17でやろうとがんばっていましたが、[これ](https://github.com/oracle/graal/issues/4790)を見て諦めてJava22に乗り換えました。
-私同様、はじめてJavaFX+jpackageでアプリを作ろうとするのであれば、Java17はやめておいた方がいいんじゃないかなあ…。
+私同様、はじめてJavaFX+jpackageでアプリを作ろうとするのであれば、Java17はやめておいた方がいいと思います。（後述の理由により、SceneBuilderにあわせるのがよいと思われる）
 あと、All-in-One の Eclipse は、JavaFXのプラグインが動かなかったので、ピュアEclipse使うのがいいと思います。JavaFXが使えるのを確認してから、他のプラグインを考えるのがよいかと思います。
 
 
@@ -82,7 +82,8 @@ JavaFXとjpackageでWindowsアプリケーションを作ってみました。
 			1. `Java Build Path`を選択し、`Libraries`タブを選択する。
 			1. `Modulepath`を選択し、`Add Library...`ボタンを押下する。
 			1. `User Library`を選択し、`javafx-sdk-22.0.2`にチェックを入れて `Finish`を押下する。
-	1. `module-info.java`
+	1. `module-info.java`を更新する。
+		※Eclipseで作った`module-info.java`には`requires javafx.base;`が入っていないので、追加は必須。
 		```java
 		module JavaFxStudy {
 			requires javafx.controls;
